@@ -1,22 +1,25 @@
-const mongoose = require('mongoose')
-const { randomUUID } = require('crypto')
+const mongoose = require("mongoose");
+const { randomUUID } = require("crypto");
 const { Schema } = mongoose;
 
-const notesSchema = new Schema({
+const notesSchema = new Schema(
+  {
     note_id: {
-        type: String,
-        default: () => randomUUID()
+      type: String,
+      default: () => randomUUID(),
     },
     title: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     body: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
-}, { timestamps: true })
+  },
+  { timestamps: true }
+);
 
-const Notes = mongoose.model('Notes', notesSchema);
+const Notes = mongoose.model("Notes", notesSchema);
 
-module.exports = { Notes }
+module.exports = { Notes };
